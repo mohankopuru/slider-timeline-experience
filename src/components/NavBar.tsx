@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,9 +26,9 @@ const NavBar: React.FC = () => {
     >
       <div className="container mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className="text-netflix-red font-bold text-2xl md:text-3xl tracking-tighter">
+          <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-tighter">
             DEVFLIX
-          </div>
+          </Link>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
@@ -37,9 +38,9 @@ const NavBar: React.FC = () => {
           <NavLink href="#interests" label="Interests" />
         </nav>
         
-        <button className="netflix-btn text-sm md:text-base">
+        <Link to="/contact" className="netflix-btn text-sm md:text-base">
           Contact Me
-        </button>
+        </Link>
       </div>
     </header>
   );
