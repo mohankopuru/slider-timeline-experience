@@ -1,8 +1,40 @@
 
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { FileDown } from 'lucide-react';
+
+// Sample CV file - in a real application, this would be stored in the public folder
+const CV_FILE_PATH = '/john_developer_cv.pdf';
 
 const AboutSection: React.FC = () => {
+  const handleDownloadCV = () => {
+    // Create a dummy PDF file for download demonstration purposes
+    const pdfBlob = new Blob(
+      [
+        // Simple PDF content
+        '%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj 3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj\nxref\n0 4\n0000000000 65535 f\n0000000010 00000 n\n0000000053 00000 n\n0000000102 00000 n\ntrailer<</Size 4/Root 1 0 R>>\nstartxref\n178\n%%EOF'
+      ],
+      { type: 'application/pdf' }
+    );
+
+    // Create a URL for the blob
+    const url = URL.createObjectURL(pdfBlob);
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'john_developer_cv.pdf';
+    
+    // Append to the document, click it, and remove it
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Clean up the URL object
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <section 
       id="about"
@@ -59,12 +91,14 @@ const AboutSection: React.FC = () => {
                 >
                   Contact Me
                 </a>
-                <a 
-                  href="#" 
-                  className="px-6 py-2 border border-white/20 rounded hover:bg-white/10 transition-colors"
+                <Button 
+                  variant="outline" 
+                  onClick={handleDownloadCV}
+                  className="flex items-center gap-2 bg-transparent border border-white/20 text-white hover:bg-white/10 hover:text-white"
                 >
+                  <FileDown size={16} />
                   Download CV
-                </a>
+                </Button>
               </div>
             </div>
           </div>
