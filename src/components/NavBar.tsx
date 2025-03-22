@@ -56,9 +56,9 @@ const NavBar: React.FC = () => {
         scrolled ? 'bg-netflix-black/95 shadow-md' : 'bg-gradient-to-b from-netflix-black/80 to-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="text-netflix-red font-bold text-xl md:text-3xl tracking-tighter">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+        <div className="flex items-center space-x-3">
+          <Link to="/" className="text-netflix-red font-bold text-xl md:text-2xl tracking-tighter">
             DEVFLIX
           </Link>
           
@@ -82,7 +82,7 @@ const NavBar: React.FC = () => {
         </button>
         
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+        <nav className="hidden md:flex items-center space-x-3 lg:space-x-5">
           <NavLink to="/about" label="About" />
           <NavLink to="/tech-stack" label="Tech Stack" />
           {isHomePage ? (
