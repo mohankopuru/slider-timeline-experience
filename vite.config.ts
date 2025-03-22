@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? './' : '/',  // Add proper base path for GitHub Pages
+  base: mode === 'production' ? '/slider-timeline-experience/' : '/',  // Correctly set the base path for GitHub Pages
   server: {
     host: "::",
     port: 8080,
