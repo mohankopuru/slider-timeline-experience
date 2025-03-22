@@ -2,15 +2,16 @@
 const ghpages = require('gh-pages');
 
 // Replace <REPOSITORY> with your repository name
-const repoURL = 'https://github.com/<USERNAME>/<REPOSITORY>.git';
+const repoURL = 'https://github.com/mohankopuru/slider-timeline-experience.git';
+
 
 ghpages.publish('dist', {
   branch: 'gh-pages',
   repo: repoURL,
   message: 'Auto-deploy to GitHub Pages',
   user: {
-    name: 'Your Name',
-    email: 'your.email@example.com'
+    name: 'Mohan Kopuru',
+    email: 'mohank.edu@gmail.com'
   }
 }, function(err) {
   if (err) {
