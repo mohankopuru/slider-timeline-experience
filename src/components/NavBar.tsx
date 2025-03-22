@@ -69,7 +69,7 @@ const NavBar: React.FC = () => {
           )}
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="flex items-center space-x-6">
           <NavLink to="/about" label="About" />
           <NavLink to="/tech-stack" label="Tech Stack" />
           {isHomePage ? (
@@ -92,13 +92,6 @@ const NavBar: React.FC = () => {
             onClick={(e) => scrollToSection(e, 'contact')} 
           />
         </nav>
-        
-        <button 
-          onClick={(e) => scrollToSection(e, 'contact')} 
-          className="netflix-btn text-sm md:text-base"
-        >
-          Contact Me
-        </button>
       </div>
     </header>
   );
