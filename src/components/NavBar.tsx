@@ -1,9 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   
   // Add scroll event listener to update navbar appearance
   useEffect(() => {
@@ -20,9 +22,16 @@ const NavBar: React.FC = () => {
   
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    
+    if (isHomePage) {
+      // If on homepage, scroll to contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other pages, navigate to homepage and then scroll to contact
+      window.location.href = '/#contact';
     }
   };
   
@@ -40,11 +49,15 @@ const NavBar: React.FC = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <NavLink href="#about" label="About" />
-          <NavLink href="#experience" label="Experience" />
-          <NavLink href="#tech" label="Tech Stack" />
-          <NavLink href="#interests" label="Interests" />
-          <NavLink href="#contact" label="Contact" />
+          <NavLink to="/about" label="About" />
+          <NavLink to="/tech-stack" label="Tech Stack" />
+          {isHomePage ? (
+            <>
+              <NavLink href="#experience" label="Experience" />
+              <NavLink href="#interests" label="Interests" />
+            </>
+          ) : null}
+          <NavLink href="#contact" label="Contact" onClick={scrollToContact} />
         </nav>
         
         <button onClick={scrollToContact} className="netflix-btn text-sm md:text-base">
@@ -56,14 +69,36 @@ const NavBar: React.FC = () => {
 };
 
 interface NavLinkProps {
-  href: string;
+  href?: string;
+  to?: string;
   label: string;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
+const NavLink: React.FC<NavLinkProps> = ({ href, to, label, onClick }) => {
+  const location = useLocation();
+  
+  if (to) {
+    return (
+      <Link
+        to={to}
+        className={`text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide ${
+          location.pathname === to ? 'text-white' : ''
+        }`}
+      >
+        {label}
+      </Link>
+    );
+  }
+  
   const scrollToSection = (e: React.MouseEvent) => {
     e.preventDefault();
-    const section = document.getElementById(href.substring(1));
+    if (onClick) {
+      onClick(e);
+      return;
+    }
+    
+    const section = document.getElementById(href?.substring(1) || '');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
