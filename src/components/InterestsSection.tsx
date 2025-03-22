@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { 
   Code, Book, Music, Plane, Camera, Coffee, Gamepad, Heart, 
-  Mountains, Palette, Users, Dumbbell, Utensils, Smartphone
+  Mountain, Palette, Users, Dumbbell, Utensils, Smartphone
 } from 'lucide-react';
 
 interface Interest {
@@ -67,7 +66,7 @@ const interests: Interest[] = [
     id: 'int8',
     name: 'Hiking',
     description: 'Weekend hikes and nature exploration',
-    icon: <Mountains size={24} />,
+    icon: <Mountain size={24} />,
     category: 'lifestyle'
   },
   {
