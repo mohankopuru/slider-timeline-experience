@@ -1,9 +1,8 @@
 
-const ghpages = require('gh-pages');
+import ghpages from 'gh-pages';
 
-// Replace <REPOSITORY> with your repository name
+// Replace with your repository name
 const repoURL = 'https://github.com/mohankopuru/slider-timeline-experience.git';
-
 
 ghpages.publish('dist', {
   branch: 'gh-pages',

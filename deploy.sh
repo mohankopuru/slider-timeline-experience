@@ -19,8 +19,8 @@ git add .
 git commit -m "Deploy to GitHub Pages"
 
 # Force push to the gh-pages branch of your repository
-# Replace <USERNAME> and <REPOSITORY> with your GitHub username and repository name
-git push -f git@github.com:<USERNAME>/<REPOSITORY>.git main:gh-pages
+# Make sure to replace mohankopuru/slider-timeline-experience with your GitHub username and repository name
+git push -f git@github.com:mohankopuru/slider-timeline-experience.git main:gh-pages
 
 # Go back to the project root
 cd ..
