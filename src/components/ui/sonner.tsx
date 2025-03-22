@@ -1,14 +1,16 @@
-import { useTheme } from "next-themes"
+
 import { Toaster as Sonner } from "sonner"
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
+  // Using a default theme instead of useTheme() hook
+  // This avoids the "dispatcher.useContext" error
+  const defaultTheme = "dark";
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={defaultTheme as ToasterProps["theme"]}
       className="toaster group"
       toastOptions={{
         classNames: {
