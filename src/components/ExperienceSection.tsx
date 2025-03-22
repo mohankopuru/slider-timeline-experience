@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Briefcase, Building, Calendar, GraduationCap, Star, UserCheck } from 'lucide-react';
+import { Briefcase, Building, Calendar, GraduationCap, Star, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Experience {
   id: string;
@@ -79,57 +81,76 @@ const ExperienceSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative pl-8 sm:pl-32 py-6 group">
-            <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-netflix-red/20 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-netflix-red after:border-4 after:box-content after:border-netflix-dark after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-              {experiences.map((experience, index) => (
-                <div key={experience.id} className="experience-card glass-card p-6 mb-8 w-full">
-                  <div className="flex flex-col sm:flex-row">
-                    <div className="sm:w-48 mb-4 sm:mb-0">
-                      <div className="text-netflix-red font-medium mb-1 flex items-center">
-                        {experience.type === 'job' ? (
-                          <Briefcase size={18} className="mr-2" />
-                        ) : (
-                          <GraduationCap size={18} className="mr-2" />
-                        )}
-                        {experience.type === 'job' ? 'Work' : 'Education'}
+        <div className="max-w-5xl mx-auto relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full netflix-carousel"
+          >
+            <CarouselContent>
+              {experiences.map((experience) => (
+                <CarouselItem key={experience.id} className="md:basis-1/2 lg:basis-1/2 pl-4">
+                  <Card className="glass-card h-full border-netflix-gray/30">
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center">
+                          <div className={`p-2 rounded-full mr-3 ${experience.type === 'job' ? 'bg-netflix-red/20' : 'bg-blue-500/20'}`}>
+                            {experience.type === 'job' ? (
+                              <Briefcase className="h-5 w-5 text-netflix-red" />
+                            ) : (
+                              <GraduationCap className="h-5 w-5 text-blue-400" />
+                            )}
+                          </div>
+                          <div className="text-netflix-red/90 text-sm font-medium">
+                            {experience.type === 'job' ? 'Work Experience' : 'Education'}
+                          </div>
+                        </div>
+                        <div className="flex items-center text-white/60 text-sm">
+                          <Calendar size={14} className="mr-1" />
+                          {experience.period}
+                        </div>
                       </div>
-                      <div className="text-white/60 text-sm flex items-center">
-                        <Calendar size={16} className="mr-2" />
-                        {experience.period}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-1">{experience.role}</h3>
-                      <div className="text-white/70 mb-4 flex items-center">
-                        <Building size={16} className="mr-2" />
+                      <CardTitle className="text-xl text-white mb-1">{experience.role}</CardTitle>
+                      <CardDescription className="text-white/70 flex items-center">
+                        <Building size={14} className="mr-2" />
                         {experience.organization}
-                      </div>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
                       <p className="text-white/80 mb-4">{experience.description}</p>
                       
                       {experience.highlights && (
                         <div className="mt-4">
                           <h4 className="text-sm font-semibold text-netflix-red mb-2 flex items-center">
-                            <Star size={16} className="mr-2" />
+                            <Star size={14} className="mr-2" />
                             Key Achievements
                           </h4>
                           <ul className="space-y-2">
                             {experience.highlights.map((highlight, i) => (
                               <li key={i} className="flex items-start">
-                                <UserCheck size={16} className="text-netflix-red mr-2 mt-1 flex-shrink-0" />
+                                <UserCheck size={14} className="text-netflix-red mr-2 mt-1 flex-shrink-0" />
                                 <span className="text-sm text-white/80">{highlight}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       )}
-                    </div>
-                  </div>
-                </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
               ))}
+            </CarouselContent>
+            <div className="flex justify-end space-x-2 mt-6">
+              <CarouselPrevious className="relative left-0 right-auto h-10 w-10 rounded-full border-netflix-red/30 bg-netflix-black/80 hover:bg-netflix-red/30">
+                <ChevronLeft className="h-6 w-6 text-netflix-red" />
+              </CarouselPrevious>
+              <CarouselNext className="relative right-0 left-auto h-10 w-10 rounded-full border-netflix-red/30 bg-netflix-black/80 hover:bg-netflix-red/30">
+                <ChevronRight className="h-6 w-6 text-netflix-red" />
+              </CarouselNext>
             </div>
-          </div>
+          </Carousel>
         </div>
       </div>
     </section>
