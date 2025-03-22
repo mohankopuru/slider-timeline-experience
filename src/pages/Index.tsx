@@ -10,6 +10,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
   const [currentStage, setCurrentStage] = useState(TIMELINE_STAGES[TIMELINE_STAGES.length - 1].id);
@@ -76,6 +77,9 @@ const Index: React.FC = () => {
       <NavBar />
       
       <main>
+        {/* About Section */}
+        <AboutSection />
+        
         {/* Hero Section with Timeline Slider */}
         <section className="relative">
           <Hero currentStage={currentStage} onStageChange={handleStageChange} />
