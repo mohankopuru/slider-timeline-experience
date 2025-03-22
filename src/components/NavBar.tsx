@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Home } from 'lucide-react';
 
 const NavBar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,10 +43,20 @@ const NavBar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center space-x-6">
           <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-tighter">
             DEVFLIX
           </Link>
+          
+          {!isHomePage && (
+            <Link 
+              to="/" 
+              className="flex items-center space-x-1 text-white/80 hover:text-white transition-colors duration-300"
+            >
+              <Home size={18} />
+              <span className="text-sm font-medium tracking-wide">Home</span>
+            </Link>
+          )}
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
