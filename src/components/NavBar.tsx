@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home } from 'lucide-react';
+import { Home, Menu, X } from 'lucide-react';
 
 const NavBar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   
@@ -44,6 +45,9 @@ const NavBar: React.FC = () => {
       // If on other pages, navigate to homepage and then scroll to section
       window.location.href = `/#${sectionId}`;
     }
+    
+    // Close mobile menu if open
+    setMobileMenuOpen(false);
   };
   
   return (
@@ -52,9 +56,9 @@ const NavBar: React.FC = () => {
         scrolled ? 'bg-netflix-black/95 shadow-md' : 'bg-gradient-to-b from-netflix-black/80 to-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-6">
-          <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-tighter">
+      <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="text-netflix-red font-bold text-xl md:text-3xl tracking-tighter">
             DEVFLIX
           </Link>
           
@@ -63,13 +67,22 @@ const NavBar: React.FC = () => {
               to="/" 
               className="flex items-center space-x-1 text-white/80 hover:text-white transition-colors duration-300"
             >
-              <Home size={18} />
+              <Home size={16} />
               <span className="text-sm font-medium tracking-wide">Home</span>
             </Link>
           )}
         </div>
         
-        <nav className="flex items-center space-x-6">
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden text-white/80 hover:text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
           <NavLink to="/about" label="About" />
           <NavLink to="/tech-stack" label="Tech Stack" />
           {isHomePage ? (
@@ -93,6 +106,35 @@ const NavBar: React.FC = () => {
           />
         </nav>
       </div>
+      
+      {/* Mobile navigation menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-netflix-black/95 px-4 py-3">
+          <nav className="flex flex-col space-y-3">
+            <NavLink to="/about" label="About" onClick={() => setMobileMenuOpen(false)} />
+            <NavLink to="/tech-stack" label="Tech Stack" onClick={() => setMobileMenuOpen(false)} />
+            {isHomePage ? (
+              <>
+                <NavLink 
+                  href="#experience" 
+                  label="Experience" 
+                  onClick={(e) => scrollToSection(e, 'experience')} 
+                />
+                <NavLink 
+                  href="#interests" 
+                  label="Interests" 
+                  onClick={(e) => scrollToSection(e, 'interests')} 
+                />
+              </>
+            ) : null}
+            <NavLink 
+              href="#contact" 
+              label="Contact" 
+              onClick={(e) => scrollToSection(e, 'contact')} 
+            />
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
@@ -114,6 +156,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, to, label, onClick }) => {
         className={`text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide ${
           location.pathname === to ? 'text-white' : ''
         }`}
+        onClick={onClick}
       >
         {label}
       </Link>
