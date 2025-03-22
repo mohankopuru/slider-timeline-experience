@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
       // If on homepage, scroll to the specified section
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } else {
       // If on other pages, navigate to homepage and then scroll to section

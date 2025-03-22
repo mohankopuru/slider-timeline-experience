@@ -64,9 +64,12 @@ const experiences: Experience[] = [
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-20 bg-netflix-black/50">
+    <section 
+      id="experience" 
+      className="py-24 mt-8 bg-netflix-black/50 scroll-mt-20"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 bg-netflix-red/80 rounded-sm text-xs font-medium tracking-wider text-white mb-4">
             CAREER PATH
           </div>
@@ -80,7 +83,7 @@ const ExperienceSection: React.FC = () => {
           <div className="relative pl-8 sm:pl-32 py-6 group">
             <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-netflix-red/20 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-netflix-red after:border-4 after:box-content after:border-netflix-dark after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
               {experiences.map((experience, index) => (
-                <div key={experience.id} className="experience-card glass-card p-6 mb-6 w-full">
+                <div key={experience.id} className="experience-card glass-card p-6 mb-8 w-full">
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-48 mb-4 sm:mb-0">
                       <div className="text-netflix-red font-medium mb-1 flex items-center">
