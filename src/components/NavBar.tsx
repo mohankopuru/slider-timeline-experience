@@ -28,7 +28,17 @@ const NavBar: React.FC = () => {
       // If on homepage, scroll to the specified section
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add a slight delay to ensure all elements are properly rendered
+        setTimeout(() => {
+          const navHeight = 80; // Approximate navbar height
+          const sectionPosition = section.getBoundingClientRect().top;
+          const offsetPosition = sectionPosition + window.pageYOffset - navHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 100);
       }
     } else {
       // If on other pages, navigate to homepage and then scroll to section

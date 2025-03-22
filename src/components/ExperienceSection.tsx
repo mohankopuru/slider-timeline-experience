@@ -66,14 +66,14 @@ const ExperienceSection: React.FC = () => {
   return (
     <section 
       id="experience" 
-      className="py-24 mt-8 bg-netflix-black/50 scroll-mt-20"
+      className="py-24 mt-8 bg-netflix-black/50 scroll-mt-24"
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 bg-netflix-red/80 rounded-sm text-xs font-medium tracking-wider text-white mb-4">
             CAREER PATH
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" id="experience-title">Professional Experience</h2>
           <p className="text-white/70 max-w-2xl mx-auto">
             My journey through the tech industry, organizations I've worked with, and skills I've developed along the way.
           </p>
