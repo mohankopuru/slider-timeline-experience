@@ -21,18 +21,18 @@ const NavBar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
   
-  const scrollToContact = (e: React.MouseEvent) => {
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     
     if (isHomePage) {
-      // If on homepage, scroll to contact section
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+      // If on homepage, scroll to the specified section
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If on other pages, navigate to homepage and then scroll to contact
-      window.location.href = '/#contact';
+      // If on other pages, navigate to homepage and then scroll to section
+      window.location.href = `/#${sectionId}`;
     }
   };
   
@@ -64,14 +64,29 @@ const NavBar: React.FC = () => {
           <NavLink to="/tech-stack" label="Tech Stack" />
           {isHomePage ? (
             <>
-              <NavLink href="#experience" label="Experience" />
-              <NavLink href="#interests" label="Interests" />
+              <NavLink 
+                href="#experience" 
+                label="Experience" 
+                onClick={(e) => scrollToSection(e, 'experience')} 
+              />
+              <NavLink 
+                href="#interests" 
+                label="Interests" 
+                onClick={(e) => scrollToSection(e, 'interests')} 
+              />
             </>
           ) : null}
-          <NavLink href="#contact" label="Contact" onClick={scrollToContact} />
+          <NavLink 
+            href="#contact" 
+            label="Contact" 
+            onClick={(e) => scrollToSection(e, 'contact')} 
+          />
         </nav>
         
-        <button onClick={scrollToContact} className="netflix-btn text-sm md:text-base">
+        <button 
+          onClick={(e) => scrollToSection(e, 'contact')} 
+          className="netflix-btn text-sm md:text-base"
+        >
           Contact Me
         </button>
       </div>
@@ -102,23 +117,10 @@ const NavLink: React.FC<NavLinkProps> = ({ href, to, label, onClick }) => {
     );
   }
   
-  const scrollToSection = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (onClick) {
-      onClick(e);
-      return;
-    }
-    
-    const section = document.getElementById(href?.substring(1) || '');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <a
       href={href}
-      onClick={scrollToSection}
+      onClick={onClick}
       className="text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide"
     >
       {label}

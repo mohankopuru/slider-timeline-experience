@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import ProfileSection from '@/components/ProfileSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import InterestsSection from '@/components/InterestsSection';
 import { TIMELINE_STAGES } from '@/lib/constants';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
@@ -89,6 +91,12 @@ const Index: React.FC = () => {
           
           {/* Stage Content */}
           <ProfileSection stageId={currentStage} />
+          
+          {/* Experience Section */}
+          <ExperienceSection />
+          
+          {/* Interests Section */}
+          <InterestsSection />
           
           {/* Contact Section */}
           <section 
