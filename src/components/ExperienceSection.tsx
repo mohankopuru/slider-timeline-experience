@@ -17,26 +17,26 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 'exp1',
-    role: 'Senior Full-Stack Engineer',
-    organization: 'TechCorp Solutions',
-    period: '2022 - Present',
-    description: 'Leading development of cloud-based enterprise applications. Mentoring junior developers and implementing best practices across teams.',
+    role: 'Software Application Development Engineer',
+    organization: 'Intel Corporation',
+    period: 'March 2021 - Present',
+    description: 'Leading development of internal web applications and windows application for supporting Intel Chipset production. Mentoring junior developers and implementing best practices across teams. ',
     type: 'job',
     highlights: [
       'Led a team of 5 developers to deliver a major platform upgrade',
-      'Implemented CI/CD pipeline reducing deployment time by 70%',
+      'Implemented and maintains CI/CD pipeline reducing deployment time by 70% and used for deployments across 14 Intel sites',
       'Improved application performance by 40% through code optimization'
     ]
   },
   {
     id: 'exp2',
-    role: 'Software Developer',
-    organization: 'InnovateTech',
-    period: '2019 - 2022',
-    description: 'Developed responsive web applications using React and Node.js. Collaborated with UX designers to implement user-friendly interfaces.',
+    role: 'Full Stack Developer Intern',
+    organization: 'FedEx',
+    period: 'Aug 2020 - Nov 2020',
+    description: 'Developed responsive web applications using Angular and SpringBoot. Collaborated with UX designers to implement user-friendly interfaces.',
     type: 'job',
     highlights: [
-      'Built RESTful APIs handling 1M+ daily requests',
+      'Built fully functional Web application for FedEx internal usage in an span of 7 weeks',
       'Reduced page load time by 60% through optimization',
       'Implemented authentication system with 2FA'
     ]

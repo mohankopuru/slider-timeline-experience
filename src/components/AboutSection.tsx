@@ -61,8 +61,8 @@ const AboutSection: React.FC = () => {
             {/* Profile Description */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="text-white">John </span>
-                <span className="text-netflix-red">Developer</span>
+                <span className="text-white">Mohan </span>
+                <span className="text-netflix-red">Kopuru</span>
               </h1>
               
               <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
@@ -74,8 +74,8 @@ const AboutSection: React.FC = () => {
               </div>
               
               <p className="text-white/80 text-lg leading-relaxed">
-                A passionate full-stack developer with over 8 years of experience building scalable web applications 
-                and intuitive user interfaces. Specialized in React, TypeScript, and Node.js with a strong 
+                A passionate full-stack developer with over 4 years of experience building scalable web applications 
+                and intuitive user interfaces. Specialized in React, C#, .NET, Python and Node.js with a strong 
                 focus on performance optimization and clean architecture. I enjoy solving complex problems 
                 and continuously learning new technologies.
               </p>
