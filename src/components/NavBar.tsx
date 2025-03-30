@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const NavBar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -9,7 +9,6 @@ const NavBar: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   
-  // Add scroll event listener to update navbar appearance
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
@@ -26,12 +25,10 @@ const NavBar: React.FC = () => {
     e.preventDefault();
     
     if (isHomePage) {
-      // If on homepage, scroll to the specified section
       const section = document.getElementById(sectionId);
       if (section) {
-        // Add a slight delay to ensure all elements are properly rendered
         setTimeout(() => {
-          const navHeight = 80; // Approximate navbar height
+          const navHeight = 80;
           const sectionPosition = section.getBoundingClientRect().top;
           const offsetPosition = sectionPosition + window.pageYOffset - navHeight;
           
@@ -42,11 +39,9 @@ const NavBar: React.FC = () => {
         }, 100);
       }
     } else {
-      // If on other pages, navigate to homepage and then scroll to section
       window.location.href = `/#${sectionId}`;
     }
     
-    // Close mobile menu if open
     setMobileMenuOpen(false);
   };
   
@@ -58,9 +53,7 @@ const NavBar: React.FC = () => {
     >
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <Link to="/" className="text-xl md:text-2xl tracking-tighter font-bold">
-            <span className="text-white">M</span><span className="text-netflix-red">K</span>
-          </Link>
+          <Logo />
           
           {!isHomePage && (
             <Link 
@@ -73,7 +66,6 @@ const NavBar: React.FC = () => {
           )}
         </div>
         
-        {/* Mobile menu button */}
         <button 
           className="md:hidden text-white/80 hover:text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -81,7 +73,6 @@ const NavBar: React.FC = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-3 lg:space-x-5">
           <NavLink to="/about" label="About" />
           <NavLink to="/tech-stack" label="Tech Stack" />
@@ -107,7 +98,6 @@ const NavBar: React.FC = () => {
         </nav>
       </div>
       
-      {/* Mobile navigation menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-netflix-black/95 px-4 py-3">
           <nav className="flex flex-col space-y-3">
