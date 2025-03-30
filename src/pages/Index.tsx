@@ -1,16 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import NavBar from '../components/NavBar';
-import Hero from '../components/Hero';
-import ProfileSection from '../components/ProfileSection';
-import ExperienceSection from '../components/ExperienceSection';
-import InterestsSection from '../components/InterestsSection';
-import { TIMELINE_STAGES } from '../lib/constants';
-import { ScrollArea } from '../components/ui/scroll-area';
-import { Textarea } from '../components/ui/textarea';
-import { Button } from '../components/ui/button';
-import { toast } from '../components/ui/sonner';
-import AboutSection from '../components/AboutSection';
+import NavBar from '@/components/NavBar';
+import Hero from '@/components/Hero';
+import ProfileSection from '@/components/ProfileSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import InterestsSection from '@/components/InterestsSection';
+import { TIMELINE_STAGES } from '@/lib/constants';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
   const [currentStage, setCurrentStage] = useState(TIMELINE_STAGES[TIMELINE_STAGES.length - 1].id);
@@ -20,6 +20,7 @@ const Index: React.FC = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Simulate loading effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
@@ -31,6 +32,7 @@ const Index: React.FC = () => {
   const handleStageChange = (stageId: string) => {
     setCurrentStage(stageId);
     
+    // Smooth scroll to content section when stage changes
     const contentSection = document.getElementById('content-section');
     if (contentSection) {
       setTimeout(() => {
@@ -43,12 +45,14 @@ const Index: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     toast.success('Message sent successfully!', {
       description: 'Thanks for reaching out. I\'ll get back to you soon.',
     });
     
+    // Reset form
     setName('');
     setEmail('');
     setMessage('');
@@ -73,24 +77,32 @@ const Index: React.FC = () => {
       <NavBar />
       
       <main>
+        {/* About Section */}
         <AboutSection />
         
+        {/* Hero Section with Timeline Slider */}
         <section className="relative">
           <Hero currentStage={currentStage} onStageChange={handleStageChange} />
         </section>
         
+        {/* Content Section */}
         <section 
           id="content-section"
           className="relative min-h-screen py-16 bg-gradient-to-b from-netflix-black/80 to-netflix-dark"
         >
+          {/* Content divider with Netflix style */}
           <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-transparent to-netflix-black/80 pointer-events-none"></div>
           
+          {/* Stage Content */}
           <ProfileSection stageId={currentStage} />
           
+          {/* Experience Section */}
           <ExperienceSection />
           
+          {/* Interests Section */}
           <InterestsSection />
           
+          {/* Contact Section */}
           <section 
             id="contact"
             className="mt-24 py-16 bg-netflix-dark/90 border-t border-white/10"
@@ -198,7 +210,7 @@ const Index: React.FC = () => {
                       <a href="mailto:devflix@example.com" className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
                         <div className="bg-red-500 p-2 rounded mr-3">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 012.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                         </div>
                         Email
@@ -210,6 +222,7 @@ const Index: React.FC = () => {
             </div>
           </section>
           
+          {/* Footer */}
           <div className="mt-24 pt-10 pb-6 border-t border-white/10 text-center text-white/50 text-sm">
             <div className="max-w-xl mx-auto px-6">
               <p>

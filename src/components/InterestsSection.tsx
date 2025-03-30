@@ -1,64 +1,133 @@
-
 import React from 'react';
+import { 
+  Code, Book, Music, Plane, Camera, Coffee, Gamepad, Heart, 
+  Mountain, Palette, Users, Dumbbell, Utensils, Smartphone
+} from 'lucide-react';
+
+interface Interest {
+  id: string;
+  name: string;
+  description: string;
+  icon: React.ReactNode;
+  category: 'tech' | 'creative' | 'lifestyle' | 'other';
+}
+
+const interests: Interest[] = [
+  {
+    id: 'int1',
+    name: 'Open Source',
+    description: 'Contributing to and maintaining open source projects in my spare time',
+    icon: <Code size={24} />,
+    category: 'tech'
+  },
+  {
+    id: 'int2',
+    name: 'Reading',
+    description: 'Science fiction, technical books, and biographies',
+    icon: <Book size={24} />,
+    category: 'lifestyle'
+  },
+  {
+    id: 'int3',
+    name: 'Music',
+    description: 'Playing guitar and exploring new genres',
+    icon: <Music size={24} />,
+    category: 'creative'
+  },
+  {
+    id: 'int4',
+    name: 'Travel',
+    description: 'Exploring new cultures and places around the world',
+    icon: <Plane size={24} />,
+    category: 'lifestyle'
+  },
+  {
+    id: 'int5',
+    name: 'Photography',
+    description: 'Landscape and street photography',
+    icon: <Camera size={24} />,
+    category: 'creative'
+  },
+  {
+    id: 'int6',
+    name: 'Coffee',
+    description: 'Discovering specialty coffee shops and brewing methods',
+    icon: <Coffee size={24} />,
+    category: 'lifestyle'
+  },
+  {
+    id: 'int7',
+    name: 'Gaming',
+    description: 'Strategy and RPG games',
+    icon: <Gamepad size={24} />,
+    category: 'other'
+  },
+  {
+    id: 'int8',
+    name: 'Hiking',
+    description: 'Weekend hikes and nature exploration',
+    icon: <Mountain size={24} />,
+    category: 'lifestyle'
+  },
+  {
+    id: 'int9',
+    name: 'Design',
+    description: 'UI/UX design and visual aesthetics',
+    icon: <Palette size={24} />,
+    category: 'creative'
+  },
+  {
+    id: 'int10',
+    name: 'Mentoring',
+    description: 'Helping new developers grow in their careers',
+    icon: <Users size={24} />,
+    category: 'other'
+  },
+  {
+    id: 'int11',
+    name: 'Fitness',
+    description: 'Weight training and running',
+    icon: <Dumbbell size={24} />,
+    category: 'lifestyle'
+  },
+  {
+    id: 'int12',
+    name: 'Cooking',
+    description: 'Experimenting with recipes from around the world',
+    icon: <Utensils size={24} />,
+    category: 'creative'
+  }
+];
 
 const InterestsSection: React.FC = () => {
   return (
-    <section className="py-20 mt-12 bg-gradient-to-b from-transparent to-netflix-black/30">
+    <section id="interests" className="py-20 bg-netflix-dark/80">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
-            Behind the <span className="text-netflix-red">Scenes</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-netflix-gray/20 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 transform transition-transform hover:scale-105">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3">When I'm Not Coding</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Hiking and exploring nature trails</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Reading science fiction and tech books</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Playing strategy board games</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Experimenting with new cooking recipes</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="bg-netflix-gray/20 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 transform transition-transform hover:scale-105">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3">What I'm Learning Now</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Web3 and blockchain development</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Advanced AI and machine learning techniques</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>Serverless architecture patterns</span>
-                  </li>
-                  <li className="flex items-baseline">
-                    <span className="text-netflix-red mr-2">▶</span>
-                    <span>UI animation and microinteractions</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <div className="text-center mb-12">
+          <div className="inline-block px-3 py-1 bg-netflix-red/80 rounded-sm text-xs font-medium tracking-wider text-white mb-4">
+            BEYOND CODE
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Interests & Hobbies</h2>
+          <p className="text-white/70 max-w-2xl mx-auto">
+            When I'm not coding, here's what keeps me inspired and balanced.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {interests.map((interest) => (
+            <div 
+              key={interest.id} 
+              className="glass-card p-6 hover:bg-white/5 transition-colors duration-300 group"
+            >
+              <div className="bg-netflix-red/20 p-3 rounded-lg inline-flex mb-4 group-hover:bg-netflix-red/30 transition-colors duration-300">
+                <div className="text-netflix-red">
+                  {interest.icon}
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">{interest.name}</h3>
+              <p className="text-white/70 text-sm">{interest.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,51 +1,181 @@
 
-export const TIMELINE_STAGES = [
+import { ReactNode } from 'react';
+
+export interface TimelineStage {
+  id: string;
+  year: string;
+  age: string;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+export interface ProfileSection {
+  id: string;
+  title: string;
+  content: ReactNode | string;
+  details?: {
+    [key: string]: string | string[];
+  };
+}
+
+export const TIMELINE_STAGES: TimelineStage[] = [
   {
-    id: "early-career",
-    title: "Early Career",
-    year: "2010-2015",
-    description: "Starting my journey in web development",
-    image: "/placeholder.svg"
+    id: "child",
+    year: "2000",
+    age: "Childhood",
+    title: "Early Beginnings",
+    icon: "👶",
+    description: "My journey began with a curiosity for how things work..."
   },
   {
-    id: "mid-career",
-    title: "Mid Career",
-    year: "2015-2020",
-    description: "Growing as a full-stack developer",
-    image: "/placeholder.svg"
+    id: "student",
+    year: "2010",
+    age: "Student",
+    title: "Academic Exploration",
+    icon: "🧑‍🎓",
+    description: "School years filled with discovering technology and coding..."
   },
   {
-    id: "senior-level",
-    title: "Senior Level",
-    year: "2020-Present",
-    description: "Leading projects and mentoring others",
-    image: "/placeholder.svg"
+    id: "college",
+    year: "2015",
+    age: "College",
+    title: "Higher Education",
+    icon: "🎓",
+    description: "College years where I specialized in computer science..."
+  },
+  {
+    id: "junior",
+    year: "2018",
+    age: "Junior Dev",
+    title: "Career Start",
+    icon: "💻",
+    description: "First steps into professional software development..."
+  },
+  {
+    id: "engineer",
+    year: "Present",
+    age: "Engineer",
+    title: "Professional Engineer",
+    icon: "👨‍💻",
+    description: "Currently working as a full-stack developer..."
   }
 ];
 
-export const PROFILE_CONTENT = {
-  "early-career": {
-    id: "early-career",
-    title: "Early Career Developer",
-    subtitle: "2010-2015",
-    details: "During this period, I focused on building a strong foundation in web development. I worked on numerous front-end projects using HTML, CSS, and JavaScript, while also learning back-end technologies like PHP and MySQL.",
-    imageUrl: "/placeholder.svg",
-    tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
-  },
-  "mid-career": {
-    id: "mid-career",
-    title: "Full-Stack Developer",
-    subtitle: "2015-2020",
-    details: "As I progressed in my career, I took on more complex projects and expanded my skill set to include modern JavaScript frameworks like React and Angular. I also gained experience with Node.js and MongoDB, allowing me to build full-stack applications.",
-    imageUrl: "/placeholder.svg",
-    tags: ["React", "Angular", "Node.js", "MongoDB", "Express"]
-  },
-  "senior-level": {
-    id: "senior-level",
-    title: "Senior Developer & Tech Lead",
-    subtitle: "2020-Present",
-    details: "Now as a senior developer, I lead projects and mentor junior developers. I've deepened my expertise in React and TypeScript, while also exploring cloud architecture with AWS and serverless computing. I specialize in building scalable applications and implementing best practices for code quality and performance.",
-    imageUrl: "/placeholder.svg",
-    tags: ["React", "TypeScript", "AWS", "Serverless", "CI/CD"]
-  }
+export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
+  "child": [
+    {
+      id: "about",
+      title: "About",
+      content: "From an early age, I was fascinated by technology. I would spend hours taking apart old electronics and trying to figure out how they worked. My parents encouraged this curiosity by getting me my first computer when I was just 8 years old."
+    },
+    {
+      id: "interests",
+      title: "Hobbies & Interests",
+      content: "As a child, I loved building with LEGOs, solving puzzles, and playing video games. These activities helped develop my problem-solving skills and spatial reasoning that would later benefit my engineering career."
+    }
+  ],
+  "student": [
+    {
+      id: "about",
+      title: "About",
+      content: "During my school years, I discovered my passion for programming when I took my first computer science class. I started learning basic programming languages and created simple games and applications."
+    },
+    {
+      id: "tech-stack",
+      title: "Tech Stack",
+      content: "I began learning:",
+      details: {
+        "Languages": ["HTML", "CSS", "JavaScript", "Python"],
+        "Tools": ["Scratch", "Code.org", "Microsoft Visual Studio"]
+      }
+    },
+    {
+      id: "interests",
+      title: "Hobbies & Interests",
+      content: "I joined the robotics club at school and participated in several competitions. I also enjoyed reading science fiction books and watching documentaries about technology and innovation."
+    }
+  ],
+  "college": [
+    {
+      id: "about",
+      title: "About",
+      content: "College was where I really honed my skills and developed a deeper understanding of computer science fundamentals. I collaborated on various projects and participated in hackathons."
+    },
+    {
+      id: "current-role",
+      title: "Current Role",
+      content: "Computer Science Student with internships in web development and software engineering."
+    },
+    {
+      id: "tech-stack",
+      title: "Tech Stack",
+      content: "Expanded my knowledge with:",
+      details: {
+        "Languages": ["Java", "C++", "SQL", "TypeScript"],
+        "Frameworks": ["React", "Node.js", "Express"],
+        "Tools": ["Git", "Docker", "AWS"]
+      }
+    },
+    {
+      id: "interests",
+      title: "Hobbies & Interests",
+      content: "I became interested in open-source development, contributing to various projects. I also enjoyed hiking, photography, and playing basketball to balance my technical pursuits."
+    }
+  ],
+  "junior": [
+    {
+      id: "about",
+      title: "About",
+      content: "Starting my professional career as a junior developer was both exciting and challenging. I worked on real-world projects and learned to collaborate with cross-functional teams."
+    },
+    {
+      id: "current-role",
+      title: "Current Role",
+      content: "Junior Software Developer at a tech startup, focusing on front-end development and user experience design."
+    },
+    {
+      id: "tech-stack",
+      title: "Tech Stack",
+      content: "Professional toolkit:",
+      details: {
+        "Front-end": ["React", "Redux", "SASS", "Tailwind CSS"],
+        "Back-end": ["Node.js", "Express", "MongoDB"],
+        "Tools": ["Git", "JIRA", "Figma", "CI/CD pipelines"]
+      }
+    },
+    {
+      id: "interests",
+      title: "Hobbies & Interests",
+      content: "I started attending tech conferences and networking events. Outside of work, I enjoyed cooking, traveling, and learning about UI/UX design principles."
+    }
+  ],
+  "engineer": [
+    {
+      id: "about",
+      title: "About",
+      content: "Now as an experienced engineer, I lead projects and mentor junior developers. I've developed expertise in building scalable applications and implementing best practices in software development."
+    },
+    {
+      id: "current-role",
+      title: "Current Role",
+      content: "Senior Full-Stack Engineer specializing in building robust, user-friendly web applications. I lead a team of developers and work closely with product managers to deliver high-quality software solutions."
+    },
+    {
+      id: "tech-stack",
+      title: "Tech Stack",
+      content: "Advanced professional toolkit:",
+      details: {
+        "Front-end": ["React", "Next.js", "TypeScript", "GraphQL"],
+        "Back-end": ["Node.js", "NestJS", "PostgreSQL", "Redis"],
+        "DevOps": ["Docker", "Kubernetes", "AWS", "CI/CD"],
+        "Tools": ["Git", "JIRA", "Figma", "Datadog"]
+      }
+    },
+    {
+      id: "interests",
+      title: "Hobbies & Interests",
+      content: "I enjoy writing technical blog posts and speaking at conferences. I'm passionate about mentoring new developers and contributing to open-source projects. In my free time, I practice yoga, play piano, and explore new coffee shops."
+    }
+  ]
 };

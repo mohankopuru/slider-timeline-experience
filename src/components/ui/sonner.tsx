@@ -5,6 +5,7 @@ type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
   // Using a default theme instead of useTheme() hook
+  // This avoids the "dispatcher.useContext" error
   const defaultTheme = "dark";
 
   return (
@@ -28,4 +29,3 @@ const Toaster = ({ ...props }: ToasterProps) => {
 }
 
 export { Toaster }
-export { toast } from "sonner"

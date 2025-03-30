@@ -1,77 +1,47 @@
 
-import React from 'react';
-import { TIMELINE_STAGES } from '@/lib/constants';
+import React, { useEffect, useState } from 'react';
+import { PROFILE_CONTENT, ProfileSection as ProfileSectionType } from '@/lib/constants';
+import ProfileCard from './ProfileCard';
 
 interface ProfileSectionProps {
   stageId: string;
 }
 
 const ProfileSection: React.FC<ProfileSectionProps> = ({ stageId }) => {
-  const currentStage = TIMELINE_STAGES.find(stage => stage.id === stageId);
-  
-  if (!currentStage) return null;
-  
-  return (
-    <section className="py-16 container mx-auto px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-netflix-gray/20 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden shadow-xl">
-          <div className="p-8">
-            <h2 className="text-3xl font-bold mb-4">
-              {currentStage.title} <span className="text-netflix-red">({currentStage.year})</span>
-            </h2>
-            <p className="text-white/80 text-lg mb-6">
-              {currentStage.description}
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-netflix-red">Key Skills</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>JavaScript/TypeScript</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>React & Modern Frontend</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>Full Stack Development</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>UI/UX Design</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-netflix-red">Highlights</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>Led development of enterprise applications</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>Implemented CI/CD pipelines</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>Mentored junior developers</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-netflix-red rounded-full mr-3"></span>
-                    <span>Contributed to open source projects</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+  const [sections, setSections] = useState<ProfileSectionType[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Reset visibility state
+    setIsVisible(false);
+    
+    // Small delay before showing the new content for transition effect
+    const timer = setTimeout(() => {
+      setSections(PROFILE_CONTENT[stageId] || []);
+      setIsVisible(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, [stageId]);
+
+  if (!sections.length) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-netflix-pulse">
+          <div className="w-10 h-10 border-4 border-netflix-red border-t-transparent rounded-full animate-spin"></div>
         </div>
       </div>
-    </section>
+    );
+  }
+
+  return (
+    <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-10 max-w-6xl mx-auto">
+        {sections.map((section, index) => (
+          <ProfileCard key={section.id} section={section} index={index} />
+        ))}
+      </div>
+    </div>
   );
 };
 
