@@ -1,4 +1,219 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 87% 49%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 87% 49%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 87% 49%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-netflix-black text-foreground font-netflix;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adds padding for fixed header */
+  }
+
+  /* Netflix-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(20, 20, 20, 0.1);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(160, 160, 160, 0.7);
+  }
+  
+  /* Custom classes for the Netflix UI */
+  .backdrop-blur-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .glass-card {
+    @apply bg-netflix-gray/40 backdrop-blur-card border border-white/10 rounded-lg;
+  }
+}
+
+/* For Netflix timeline slider */
+.timeline-track {
+  @apply bg-netflix-gray relative overflow-hidden rounded-full transition-all duration-300;
+  height: 3px;
+}
+
+.timeline-progress {
+  @apply bg-netflix-red absolute top-0 left-0 h-full transition-all duration-300;
+}
+
+.timeline-thumb {
+  @apply bg-netflix-red rounded-full absolute top-1/2 -translate-y-1/2 cursor-pointer shadow-lg transition-transform duration-200;
+  height: 20px;
+  width: 20px;
+  transform-origin: center;
+}
+
+.timeline-thumb:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.timeline-thumb:active {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.timeline-label {
+  @apply text-xs text-white/80 absolute -bottom-8 -translate-x-1/2 whitespace-nowrap transition-opacity duration-300;
+  opacity: 0;
+}
+
+.timeline-thumb:hover + .timeline-label,
+.timeline-thumb:active + .timeline-label,
+.timeline-thumb.active + .timeline-label {
+  opacity: 1;
+}
+
+/* Netflix-style carousel */
+.netflix-carousel .embla__container {
+  backface-visibility: hidden;
+}
+
+.netflix-carousel .embla__slide {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.netflix-carousel .embla__slide:hover {
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+.netflix-carousel .embla__button {
+  @apply flex items-center justify-center w-10 h-10 rounded-full bg-netflix-black/50 border border-netflix-red/20 text-netflix-red;
+  transition: all 0.3s ease;
+}
+
+.netflix-carousel .embla__button:hover {
+  @apply bg-netflix-red/10 border-netflix-red/40;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 400ms, transform 400ms;
+}
+
+/* Content reveal animation */
+.content-reveal {
+  animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes contentReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Netflix red button glow effect */
+.netflix-btn {
+  @apply relative overflow-hidden bg-netflix-red text-white px-6 py-2 rounded font-semibold transition-all duration-300;
+}
+
+.netflix-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+}
+
+.netflix-btn:hover::after {
+  left: 100%;
+}
+
+/* For profile icons */
+.profile-icon {
+  @apply rounded-md overflow-hidden transition-transform duration-300;
+}
+
+.profile-icon:hover {
+  @apply transform scale-105;
+}

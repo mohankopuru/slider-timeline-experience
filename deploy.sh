@@ -1,31 +1,28 @@
 
-#!/usr/bin/env sh
+#!/bin/bash
 
-# abort on errors
-set -e
-
-# build
+# Build the project
 npm run build
 
-# navigate into the build output directory
+# Navigate into the build output directory
 cd dist
 
-# create .nojekyll file to bypass Jekyll processing
+# Create a .nojekyll file to bypass Jekyll processing
 touch .nojekyll
 
-# initialize git repository if not already initialized
-if [ -d .git ]; then
-  echo "Git repository already initialized"
-else
-  git init
-fi
+# Initialize git in the dist folder
+git init
+git checkout -b main
+git add .
 
-git add -A
+# Commit the changes
 git commit -m "Deploy to GitHub Pages"
 
-# deploy to the main branch of your GitHub Pages repository
-git push -f git@github.com:mohankopuru/mohankopuru.github.io.git main
+# Force push to the gh-pages branch of your repository
+# Make sure to replace mohankopuru/slider-timeline-experience with your GitHub username and repository name
+git push -f git@github.com:mohankopuru/slider-timeline-experience.git main:gh-pages
 
-cd -
+# Go back to the project root
+cd ..
 
-echo "Deployment complete!"
+echo "Deployed to GitHub Pages!"
