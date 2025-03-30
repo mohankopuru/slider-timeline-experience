@@ -73,12 +73,27 @@ const AboutSection: React.FC = () => {
                 <span className="bg-white/10 px-3 py-1 rounded-full text-sm">UI/UX</span>
               </div>
               
-              <p className="text-white/80 text-lg leading-relaxed">
-                A passionate full-stack developer with over 8 years of experience building scalable web applications 
-                and intuitive user interfaces. Specialized in React, TypeScript, and Node.js with a strong 
-                focus on performance optimization and clean architecture. I enjoy solving complex problems 
-                and continuously learning new technologies.
-              </p>
+              <div className="text-white/80 text-lg space-y-4">
+                <p>
+                  I'm a passionate full-stack developer with over four years of experience in building scalable web applications and intuitive user interfaces.
+                </p>
+                
+                <p>
+                  I specialize in React, TypeScript, Python, C#, .NET, and Node.js, always focusing on performance, clean architecture, and user experience.
+                </p>
+                
+                <p>
+                  Recently, I've been exploring Generative AI, working on Text-to-SQL generation and automation using Agentic AI solutions.
+                </p>
+                
+                <p>
+                  I love tackling complex problems, learning new technologies, and pushing the limits of what AI can do in real-world applications.
+                </p>
+                
+                <p>
+                  Let's create something amazing together! 🚀
+                </p>
+              </div>
               
               <div className="mt-6 flex gap-4 justify-center md:justify-start">
                 <a 
