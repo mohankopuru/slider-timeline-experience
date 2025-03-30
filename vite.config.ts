@@ -11,5 +11,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: '/slider-timeline-experience/', // Add this line for GitHub Pages deployment
+  server: {
+    port: 8080
+  },
+  base: '/slider-timeline-experience/', // For GitHub Pages deployment
 })
