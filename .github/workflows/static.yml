@@ -6,6 +6,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+# Explicitly define all required permissions
 permissions:
   contents: write
   pages: write
