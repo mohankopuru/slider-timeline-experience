@@ -1,156 +1,79 @@
 
 import React from 'react';
-import { Briefcase, Building, Calendar, GraduationCap, Star, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-
-interface Experience {
-  id: string;
-  role: string;
-  organization: string;
-  period: string;
-  description: string;
-  type: 'job' | 'education';
-  highlights?: string[];
-}
-
-const experiences: Experience[] = [
-  {
-    id: 'exp1',
-    role: 'Software Application Development Engineer',
-    organization: 'Intel Corporation',
-    period: 'March 2021 - Present',
-    description: 'Leading development of internal web applications and windows application for supporting Intel Chipset production. Mentoring junior developers and implementing best practices across teams. ',
-    type: 'job',
-    highlights: [
-      'Led a team of 5 developers to deliver a major platform upgrade',
-      'Implemented and maintains CI/CD pipeline reducing deployment time by 70% and used for deployments across 14 Intel sites',
-      'Improved application performance by 40% through code optimization'
-    ]
-  },
-  {
-    id: 'exp2',
-    role: 'Full Stack Developer Intern',
-    organization: 'FedEx',
-    period: 'Aug 2020 - Nov 2020',
-    description: 'Developed responsive web applications using Angular and SpringBoot. Collaborated with UX designers to implement user-friendly interfaces.',
-    type: 'job',
-    highlights: [
-      'Built fully functional Web application for FedEx internal usage in an span of 7 weeks',
-      'Reduced page load time by 60% through optimization',
-      'Implemented authentication system with 2FA'
-    ]
-  },
-  {
-    id: 'exp3',
-    role: 'Junior Developer',
-    organization: 'StartupHub',
-    period: '2018 - 2019',
-    description: 'Maintained and enhanced company website and internal tools. Collaborated on developing new features for client-facing applications.',
-    type: 'job'
-  },
-  {
-    id: 'exp4',
-    role: 'Computer Science Degree',
-    organization: 'Tech University',
-    period: '2014 - 2018',
-    description: 'Bachelor of Science in Computer Science with focus on software engineering and web technologies. GPA: 3.8/4.0',
-    type: 'education',
-    highlights: [
-      'Graduated with honors',
-      'Capstone project: Real-time collaboration tool',
-      'Teaching Assistant for Web Development courses'
-    ]
-  }
-];
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section 
-      id="experience" 
-      className="py-24 mt-8 bg-netflix-black/50 scroll-mt-24"
-    >
+    <section className="py-20 mt-12">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 bg-netflix-red/80 rounded-sm text-xs font-medium tracking-wider text-white mb-4">
-            CAREER PATH
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+            Career <span className="text-netflix-red">Highlights</span>
+          </h2>
+          
+          <div className="bg-netflix-gray/20 backdrop-blur-sm rounded-lg border border-white/10 p-6">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1" className="border-white/10">
+                <AccordionTrigger className="text-xl hover:text-netflix-red">
+                  <div className="flex flex-col items-start text-left">
+                    <span>Senior Frontend Engineer</span>
+                    <span className="text-sm text-white/60 font-normal">2020 - Present | TechFlix Inc.</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-white/80">
+                  <p className="mb-4">
+                    Led the frontend development team in building a streaming platform with React and TypeScript.
+                  </p>
+                  <ul className="space-y-2 ml-5 list-disc">
+                    <li>Implemented a component library that reduced development time by 40%</li>
+                    <li>Optimized application performance, improving load times by 60%</li>
+                    <li>Mentored junior developers and established best practices</li>
+                    <li>Collaborated with UX team to improve user engagement metrics</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border-white/10">
+                <AccordionTrigger className="text-xl hover:text-netflix-red">
+                  <div className="flex flex-col items-start text-left">
+                    <span>Full Stack Developer</span>
+                    <span className="text-sm text-white/60 font-normal">2015 - 2020 | WebStream Solutions</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-white/80">
+                  <p className="mb-4">
+                    Developed and maintained web applications for enterprise clients using React, Node.js, and MongoDB.
+                  </p>
+                  <ul className="space-y-2 ml-5 list-disc">
+                    <li>Built RESTful APIs and microservices architecture</li>
+                    <li>Implemented authentication and authorization systems</li>
+                    <li>Led the migration from monolithic to microservices architecture</li>
+                    <li>Integrated third-party APIs and payment gateways</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="border-white/10">
+                <AccordionTrigger className="text-xl hover:text-netflix-red">
+                  <div className="flex flex-col items-start text-left">
+                    <span>Junior Web Developer</span>
+                    <span className="text-sm text-white/60 font-normal">2010 - 2015 | Digital Creations</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-white/80">
+                  <p className="mb-4">
+                    Started my career building responsive websites and web applications for small to medium businesses.
+                  </p>
+                  <ul className="space-y-2 ml-5 list-disc">
+                    <li>Created responsive layouts using HTML, CSS, and JavaScript</li>
+                    <li>Developed WordPress themes and plugins for clients</li>
+                    <li>Implemented e-commerce solutions with WooCommerce</li>
+                    <li>Collaborated with designers to bring mockups to life</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" id="experience-title">Professional Experience</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            My journey through the tech industry, organizations I've worked with, and skills I've developed along the way.
-          </p>
-        </div>
-
-        <div className="max-w-5xl mx-auto relative">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full netflix-carousel"
-          >
-            <CarouselContent>
-              {experiences.map((experience) => (
-                <CarouselItem key={experience.id} className="md:basis-1/2 lg:basis-1/2 pl-4">
-                  <Card className="glass-card h-full border-netflix-gray/30">
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center">
-                          <div className={`p-2 rounded-full mr-3 ${experience.type === 'job' ? 'bg-netflix-red/20' : 'bg-blue-500/20'}`}>
-                            {experience.type === 'job' ? (
-                              <Briefcase className="h-5 w-5 text-netflix-red" />
-                            ) : (
-                              <GraduationCap className="h-5 w-5 text-blue-400" />
-                            )}
-                          </div>
-                          <div className="text-netflix-red/90 text-sm font-medium">
-                            {experience.type === 'job' ? 'Work Experience' : 'Education'}
-                          </div>
-                        </div>
-                        <div className="flex items-center text-white/60 text-sm">
-                          <Calendar size={14} className="mr-1" />
-                          {experience.period}
-                        </div>
-                      </div>
-                      <CardTitle className="text-xl text-white mb-1">{experience.role}</CardTitle>
-                      <CardDescription className="text-white/70 flex items-center">
-                        <Building size={14} className="mr-2" />
-                        {experience.organization}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-white/80 mb-4">{experience.description}</p>
-                      
-                      {experience.highlights && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-netflix-red mb-2 flex items-center">
-                            <Star size={14} className="mr-2" />
-                            Key Achievements
-                          </h4>
-                          <ul className="space-y-2">
-                            {experience.highlights.map((highlight, i) => (
-                              <li key={i} className="flex items-start">
-                                <UserCheck size={14} className="text-netflix-red mr-2 mt-1 flex-shrink-0" />
-                                <span className="text-sm text-white/80">{highlight}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-end space-x-2 mt-6">
-              <CarouselPrevious className="relative left-0 right-auto h-10 w-10 rounded-full border-netflix-red/30 bg-netflix-black/80 hover:bg-netflix-red/30">
-                <ChevronLeft className="h-6 w-6 text-netflix-red" />
-              </CarouselPrevious>
-              <CarouselNext className="relative right-0 left-auto h-10 w-10 rounded-full border-netflix-red/30 bg-netflix-black/80 hover:bg-netflix-red/30">
-                <ChevronRight className="h-6 w-6 text-netflix-red" />
-              </CarouselNext>
-            </div>
-          </Carousel>
         </div>
       </div>
     </section>
