@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
@@ -5,10 +6,10 @@ import ProfileSection from '../components/ProfileSection';
 import ExperienceSection from '../components/ExperienceSection';
 import InterestsSection from '../components/InterestsSection';
 import { TIMELINE_STAGES } from '../lib/constants';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/sonner';
+import { ScrollArea } from '../components/ui/scroll-area';
+import { Textarea } from '../components/ui/textarea';
+import { Button } from '../components/ui/button';
+import { toast } from '../components/ui/sonner';
 import AboutSection from '../components/AboutSection';
 
 const Index: React.FC = () => {

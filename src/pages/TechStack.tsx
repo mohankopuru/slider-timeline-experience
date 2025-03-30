@@ -1,70 +1,63 @@
 
 import React from 'react';
-import NavBar from '@/components/NavBar';
-import { PROFILE_CONTENT } from '@/lib/constants';
+import NavBar from '../components/NavBar';
+import ProfileCard from '../components/ProfileCard';
+import { PROFILE_CONTENT } from '../lib/constants';
 
 const TechStack = () => {
-  // Combine all tech stacks from different career stages
-  const allTechStacks = Object.values(PROFILE_CONTENT)
-    .flat()
-    .filter(section => section.id === 'tech-stack')
-    .map(section => section.details || {});
-
-  // Combine all unique technologies by category
-  const combinedTechStack: Record<string, string[]> = {};
+  const profile = PROFILE_CONTENT["senior-level"];
   
-  allTechStacks.forEach(techStack => {
-    Object.entries(techStack).forEach(([category, technologies]) => {
-      if (!combinedTechStack[category]) {
-        combinedTechStack[category] = [];
-      }
-      
-      if (Array.isArray(technologies)) {
-        technologies.forEach(tech => {
-          if (!combinedTechStack[category].includes(tech)) {
-            combinedTechStack[category].push(tech);
-          }
-        });
-      }
-    });
-  });
-
   return (
     <div className="min-h-screen bg-netflix-black text-white">
       <NavBar />
       
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-netflix-red mb-4">Tech Stack</h1>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              A comprehensive collection of technologies I've worked with throughout my career
-            </p>
-          </div>
+      <div className="container mx-auto px-6 pt-24 pb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-netflix-red">My Tech Stack</h1>
+        
+        <div className="max-w-4xl">
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6">Frontend Technologies</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {["React", "TypeScript", "Next.js", "Tailwind CSS", "Redux", "GraphQL"].map((tech) => (
+                <div key={tech} className="bg-netflix-dark p-4 rounded-lg border border-white/10 shadow-lg">
+                  <h3 className="font-bold text-xl mb-2">{tech}</h3>
+                  <div className="w-full bg-white/10 h-2 rounded-full">
+                    <div className="bg-netflix-red h-2 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(combinedTechStack).map(([category, technologies]) => (
-              <div key={category} className="glass-card p-6">
-                <div className="mb-4 flex items-center">
-                  <div className="h-1 w-6 bg-netflix-red mr-3 rounded-full"></div>
-                  <h2 className="text-xl font-semibold">{category}</h2>
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6">Backend Technologies</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase", "AWS"].map((tech) => (
+                <div key={tech} className="bg-netflix-dark p-4 rounded-lg border border-white/10 shadow-lg">
+                  <h3 className="font-bold text-xl mb-2">{tech}</h3>
+                  <div className="w-full bg-white/10 h-2 rounded-full">
+                    <div className="bg-netflix-red h-2 rounded-full" style={{ width: '85%' }}></div>
+                  </div>
                 </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {technologies.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="px-3 py-1.5 bg-white/10 hover:bg-white/20 transition-colors rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              ))}
+            </div>
+          </section>
+          
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6">Tools & Practices</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {["Git", "Docker", "Jest", "CI/CD", "Agile", "TDD"].map((tech) => (
+                <div key={tech} className="bg-netflix-dark p-4 rounded-lg border border-white/10 shadow-lg">
+                  <h3 className="font-bold text-xl mb-2">{tech}</h3>
+                  <div className="w-full bg-white/10 h-2 rounded-full">
+                    <div className="bg-netflix-red h-2 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
