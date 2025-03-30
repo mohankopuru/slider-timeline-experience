@@ -1,11 +1,11 @@
 
 import ghpages from 'gh-pages';
 
-// Replace with your repository name
-const repoURL = 'https://github.com/mohankopuru/slider-timeline-experience.git';
+// Repository for the user page
+const repoURL = 'https://github.com/mohankopuru/mohankopuru.github.io.git';
 
 ghpages.publish('dist', {
-  branch: 'gh-pages',
+  branch: 'main', // GitHub Pages user sites must be published from the main branch
   repo: repoURL,
   message: 'Auto-deploy to GitHub Pages',
   user: {
