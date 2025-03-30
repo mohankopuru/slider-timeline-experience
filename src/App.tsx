@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index';
 import Contact from './pages/Contact';
 import TechStack from './pages/TechStack';
