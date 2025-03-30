@@ -64,7 +64,7 @@ const Index: React.FC = () => {
       <div className="fixed inset-0 bg-netflix-black flex items-center justify-center z-50">
         <div className="flex flex-col items-center">
           <div className="text-netflix-red text-4xl font-bold mb-4 animate-netflix-pulse">
-            DEVFLIX
+            MOHAN KOPURU
           </div>
           <div className="w-12 h-12 border-4 border-netflix-red border-t-transparent rounded-full animate-spin"></div>
         </div>
