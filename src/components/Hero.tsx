@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { TIMELINE_STAGES } from '@/lib/constants';
+import { TIMELINE_STAGES } from '../lib/constants';
 
 interface HeroProps {
   currentStage: string;
