@@ -17,49 +17,51 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 'exp1',
-    role: 'Senior Full-Stack Engineer',
-    organization: 'TechCorp Solutions',
-    period: '2022 - Present',
-    description: 'Leading development of cloud-based enterprise applications. Mentoring junior developers and implementing best practices across teams.',
+    role: 'Full Stack Software Development Engineer',
+    organization: 'Intel Corporation',
+    period: '2021 - Present',
+    description: 'Leading development of organizational web and windows applications and software, supporting chipsets production across 14 Intel manufacturing sites.. Mentoring junior developers and implementing best practices across teams.',
     type: 'job',
     highlights: [
-      'Led a team of 5 developers to deliver a major platform upgrade',
+      '4+ years of software engineering expertise in the development of products through the software lifecycle, from requirements definition through successful deployment',
       'Implemented CI/CD pipeline reducing deployment time by 70%',
-      'Improved application performance by 40% through code optimization'
+      'Led the effort to write over 200+ unit test cases, achieving 94% code coverage, ensuring robust and reliable code quality, with nightly test runs.',
+      'Implemented an Automated script generation workflow using Agentic AI concepts and integrated with GithHub CI/CD pipeline.',
+      'Recipient of 4 Department Recognition Awards spanning 2021 to 2024, for consistent excellence.'
     ]
   },
   {
     id: 'exp2',
-    role: 'Software Developer',
-    organization: 'InnovateTech',
-    period: '2019 - 2022',
-    description: 'Developed responsive web applications using React and Node.js. Collaborated with UX designers to implement user-friendly interfaces.',
+    role: 'Full Stack Software Developer Intern',
+    organization: 'FedEx Corporation',
+    period: 'Aug 2020 - Nov 2020',
+    description: 'Developed responsive web applications using Angular and Node.js. Collaborated within high-performing team, designing, developing, and maintaining organizational web applications with focus on performance and user engagement',
     type: 'job',
     highlights: [
       'Built RESTful APIs handling 1M+ daily requests',
-      'Reduced page load time by 60% through optimization',
-      'Implemented authentication system with 2FA'
+      'Built web application allowing FedEx Business users to make country specific data configuration changes without assistance from IT or RAD in 3 weeks.',
+      'Maximized associate efficiency, increasing support time by 55% and reducing manual work by 70% by implementing new application to alleviate interdepartmental dependencies',
     ]
   },
   {
     id: 'exp3',
-    role: 'Junior Developer',
-    organization: 'StartupHub',
-    period: '2018 - 2019',
-    description: 'Maintained and enhanced company website and internal tools. Collaborated on developing new features for client-facing applications.',
+    role: 'Graduate Research Assistant',
+    organization: 'The Institute for Systems Engineering Research, Mississippi State University',
+    period: 'Jan 2019 - May 2020',
+    description: 'Developed a predictive analytics tool to predict the occurrence of vehicle system failures in US Army Ground Terrain Vehicles',
     type: 'job'
   },
   {
     id: 'exp4',
     role: 'Computer Science Degree',
-    organization: 'Tech University',
-    period: '2014 - 2018',
-    description: 'Bachelor of Science in Computer Science with focus on software engineering and web technologies. GPA: 3.8/4.0',
+    organization: 'Mississipi State University',
+    period: 'Aug 2018 - May 2020',
+    description: 'Master of Science in Computer Science with focus on Web technologies and Artificial Intelligence. GPA: 4.0/4.0',
     type: 'education',
     highlights: [
       'Graduated with honors',
-      'Capstone project: Real-time collaboration tool',
-      'Teaching Assistant for Web Development courses'
+      'Thesis project:  A machine learning framework for prediction of Diagnostic Trouble Codes in automobiles" (2020)',
+      'Publications: Kopuru, Mohan & Rahimi, Shahram & Teimouri Baghaei, Kourosh. (2019). Recent Approaches in Prognostics: State of the Art.'
     ]
   }
 ];
