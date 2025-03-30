@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { TIMELINE_STAGES, TimelineStage } from '@/lib/constants';
+import { TIMELINE_STAGES } from '@/lib/constants';
 
 interface NetflixSliderProps {
   onStageChange: (stageId: string) => void;

@@ -9,7 +9,7 @@ import { TIMELINE_STAGES } from '@/lib/constants';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
+import { toast } from '@/components/ui/sonner';
 import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
