@@ -61,16 +61,16 @@ const AboutSection: React.FC = () => {
             {/* Profile Description */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="text-white">John </span>
-                <span className="text-netflix-red">Developer</span>
+                <span className="text-white">Mohan </span>
+                <span className="text-netflix-red">Kopuru</span>
               </h1>
               
               <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
                 <span className="bg-white/10 px-3 py-1 rounded-full text-sm">React</span>
-                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">TypeScript</span>
-                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">Node.js</span>
-                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">AWS</span>
-                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">Python</span>
+                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">C#</span>
+                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">GenAI</span>
+                <span className="bg-white/10 px-3 py-1 rounded-full text-sm">Docker</span>
               </div>
               
               <div className="text-white/80 text-lg space-y-4">
