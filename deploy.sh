@@ -20,7 +20,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to https://<USERNAME>.github.io
+# deploy to the main branch of your GitHub Pages repository
 git push -f git@github.com:mohankopuru/mohankopuru.github.io.git main
 
 cd -

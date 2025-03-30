@@ -39,3 +39,5 @@ jobs:
           branch: gh-pages
           clean: true
           single-commit: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: mohankopuru/mohankopuru.github.io
