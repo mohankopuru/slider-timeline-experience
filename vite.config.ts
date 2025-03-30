@@ -36,6 +36,9 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
-    base: '/' // Setting base to root for GitHub Pages
+    base: '/', // Setting base to root for GitHub Pages
+    css: {
+      postcss: './postcss.config.js',
+    }
   };
 });
