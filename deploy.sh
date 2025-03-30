@@ -13,14 +13,19 @@ cd dist
 # create .nojekyll file to bypass Jekyll processing
 touch .nojekyll
 
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
+# initialize git repository if not already initialized
+if [ -d .git ]; then
+  echo "Git repository already initialized"
+else
+  git init
+fi
 
-git init
 git add -A
-git commit -m 'deploy'
+git commit -m "Deploy to GitHub Pages"
 
 # deploy to the main branch of your GitHub Pages repository
 git push -f git@github.com:mohankopuru/mohankopuru.github.io.git main
 
 cd -
+
+echo "Deployment complete!"

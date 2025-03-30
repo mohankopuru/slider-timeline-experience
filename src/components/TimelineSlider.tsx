@@ -1,8 +1,8 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TimelineItem from './TimelineItem';
 
-// Define timeline data
+// Define timeline data in a separate constant
 const timelineData = [
   {
     id: 1,
@@ -45,45 +45,49 @@ const timelineData = [
 const TimelineSlider: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [sliderValue, setSliderValue] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
 
+  // Update active index when slider value changes
   useEffect(() => {
     const index = Math.round(sliderValue * (timelineData.length - 1));
     setActiveIndex(index);
   }, [sliderValue]);
 
+  // Handle slider input change
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
     setSliderValue(value);
   };
 
+  // Handle timeline item click
   const handleSliderClick = (index: number) => {
     const newValue = index / (timelineData.length - 1);
     setSliderValue(newValue);
     setActiveIndex(index);
   };
 
+  // Active timeline content component
+  const ActiveTimelineContent = () => (
+    <div className="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+      <div className="text-3xl font-bold text-indigo-600 mb-2">
+        {timelineData[activeIndex].year}
+      </div>
+      <h3 className="text-xl font-semibold mb-2">
+        {timelineData[activeIndex].title}
+      </h3>
+      <p className="text-gray-600">
+        {timelineData[activeIndex].description}
+      </p>
+    </div>
+  );
+
   return (
     <div className="w-full">
       {/* Active Timeline Item */}
-      <div className="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <div className="text-3xl font-bold text-indigo-600 mb-2">
-          {timelineData[activeIndex].year}
-        </div>
-        <h3 className="text-xl font-semibold mb-2">
-          {timelineData[activeIndex].title}
-        </h3>
-        <p className="text-gray-600">
-          {timelineData[activeIndex].description}
-        </p>
-      </div>
+      <ActiveTimelineContent />
 
       {/* Timeline Slider */}
-      <div 
-        className="relative w-full"
-        ref={sliderRef}
-      >
+      <div className="relative w-full">
+        {/* Progress bar */}
         <div className="w-full h-1 bg-gray-300 rounded-full relative">
           <div 
             className="absolute top-0 left-0 h-1 bg-indigo-600 rounded-full"
