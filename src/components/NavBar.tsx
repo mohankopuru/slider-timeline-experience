@@ -58,8 +58,8 @@ const NavBar: React.FC = () => {
     >
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <Link to="/" className="text-netflix-red font-bold text-xl md:text-2xl tracking-tighter">
-            DEVFLIX
+          <Link to="/" className="text-xl md:text-2xl tracking-tighter font-bold">
+            <span className="text-white">M</span><span className="text-netflix-red">K</span>
           </Link>
           
           {!isHomePage && (
