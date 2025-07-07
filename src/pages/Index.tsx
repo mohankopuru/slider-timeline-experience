@@ -226,7 +226,7 @@ const Index: React.FC = () => {
           <div className="mt-24 pt-10 pb-6 border-t border-white/10 text-center text-white/50 text-sm">
             <div className="max-w-xl mx-auto px-6">
               <p>
-                © {new Date().getFullYear()} DEVFLIX • Inspired by Netflix
+                © {new Date().getFullYear()} #HireMohanKopuru :)
               </p>
               <p className="mt-2">
                 Created with React, Tailwind CSS, and a passion for great UI/UX
