@@ -23,11 +23,13 @@ const experiences: Experience[] = [
     description: 'Leading development of organizational web and windows applications and software, supporting chipsets production across 14 Intel manufacturing sites.. Mentoring junior developers and implementing best practices across teams.',
     type: 'job',
     highlights: [
-      '4+ years of software engineering expertise in the development of products through the software lifecycle, from requirements definition through successful deployment',
-      'Implemented CI/CD pipeline reducing deployment time by 70%',
-      'Led the effort to write over 200+ unit test cases, achieving 94% code coverage, ensuring robust and reliable code quality, with nightly test runs.',
-      'Implemented an Automated script generation workflow using Agentic AI concepts and integrated with GithHub CI/CD pipeline.',
-      'Recipient of 4 Department Recognition Awards spanning 2021 to 2024, for consistent excellence.'
+      'Built React & Next.js frontends and Flask APIs to streamline chipset manufacturing workflows across 14 global sites',
+      'Developed ETL automation tools reducing product setup from 36 to 2.5 hours, saving 5,000+ manual hours annually',
+      'Delivered 70+ full-stack features that cut production simulation time from 28 to 2.5 hours, saving 12,000+ manual hours yearly',
+      'Led migration from TFS to GitHub and created reusable CI/CD pipelines, reducing deployment downtime by 80%, saving 8,000 hours annually',
+      'Managed a 15-engineer team to develop a GenAI chatbot powered by Mistral LLM, enhancing internal user support',
+      'Implemented AI-driven automated script generation integrated into CI/CD for faster, error-free deployments',
+      'Coordinated cross-team design syncs and earned 4 department awards for impactful full-stack leadership'
     ]
   },
   {
@@ -124,7 +126,7 @@ const ExperienceSection: React.FC = () => {
                       <p className="text-white/80 mb-4">{experience.description}</p>
                       
                       {experience.highlights && (
-                        <div className="mt-4">
+                        <div className="mt-4 text-left">
                           <h4 className="text-sm font-semibold text-netflix-red mb-2 flex items-center">
                             <Star size={14} className="mr-2" />
                             Key Achievements

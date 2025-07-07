@@ -65,7 +65,7 @@ export const TIMELINE_STAGES: TimelineStage[] = [
 export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
   "child": [
     {
-      id: "about",
+      id: "about", 
       title: "About",
       content: "From an early age, I was fascinated by technology. I would spend hours taking apart old electronics and trying to figure out how they worked. My parents encouraged this curiosity by getting me my first computer when I was just 8 years old."
     },
@@ -99,7 +99,7 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
   "college": [
     {
       id: "about",
-      title: "About",
+      title: "About", 
       content: "College was where I really honed my skills and developed a deeper understanding of computer science fundamentals. I collaborated on various projects and participated in hackathons."
     },
     {
@@ -112,9 +112,9 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
       title: "Tech Stack",
       content: "Expanded my knowledge with:",
       details: {
-        "Languages": ["Java", "C++", "SQL", "TypeScript"],
-        "Frameworks": ["React", "Node.js", "Express"],
-        "Tools": ["Git", "Docker", "AWS"]
+        "Languages": ["Java", "Python", "SQL", "TypeScript"],
+        "Frameworks": ["React", "NextJs", "Node.Js"],
+        "Tools": ["Git","Visual Studio Code","VS Code","Jira"]
       }
     },
     {
@@ -139,9 +139,9 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
       title: "Tech Stack",
       content: "Professional toolkit:",
       details: {
-        "Front-end": ["React", "Redux", "SASS", "Tailwind CSS"],
-        "Back-end": ["Node.js", "Express", "MongoDB"],
-        "Tools": ["Git", "JIRA", "Figma", "CI/CD pipelines"]
+        "Front-end": ["React", "Tailwind CSS", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"],
+        "Back-end": ["Node.js", "Python", "Flask", "SQL", "PostGreSQL"],
+        "Tools": ["Git", "JIRA", "CI/CD pipelines"]
       }
     },
     {
@@ -166,10 +166,10 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
       title: "Tech Stack",
       content: "Advanced professional toolkit:",
       details: {
-        "Front-end": ["React", "Next.js", "TypeScript", "GraphQL"],
-        "Back-end": ["Node.js", "NestJS", "PostgreSQL", "Redis"],
-        "DevOps": ["Docker", "Kubernetes", "AWS", "CI/CD"],
-        "Tools": ["Git", "JIRA", "Figma", "Datadog"]
+        "Front-end": ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+        "Back-end": ["Node.js", "Next.Js", "PostGreSQL", "Redis", "Python"],
+        "DevOps": ["Docker", "CI/CD"],
+        "Tools": ["Git", "JIRA","VS Code","Visual Studio Code", "Cursor"]
       }
     },
     {
