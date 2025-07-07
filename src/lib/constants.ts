@@ -132,7 +132,7 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
     {
       id: "current-role",
       title: "Current Role",
-      content: "Junior Software Developer at a tech startup, focusing on front-end development and user experience design."
+      content: "Junior Software Developer at a Intel Corporation focusing on both front-end and backend development, and working with cross functional teams through entire software development lifecycle"
     },
     {
       id: "tech-stack",
