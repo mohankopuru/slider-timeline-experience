@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { FileDown } from 'lucide-react';
 
 // Sample CV file - in a real application, this would be stored in the public folder
-const CV_FILE_PATH = 'https://drive.google.com/file/d/1yGngzuC_d2j3bl__K2ZpPOXJdKOm4Izg/view?usp=sharing';
+const CV_FILE_PATH = 'https://drive.google.com/file/d/1DsBHgEKWmGKb37a26p53kZTxSbS0EQuh/view?usp=sharing';
 
 const AboutSection: React.FC = () => {
   const handleDownloadCV = () => {
