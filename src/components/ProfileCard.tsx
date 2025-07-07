@@ -26,11 +26,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ section, index }) => {
         </h3>
       </div>
       
-      <div className="text-white/80 leading-relaxed">
+      <div className="text-white/80 leading-relaxed text-left">
         {section.content}
         
         {section.details && (
-          <div className="mt-4">
+          <div className="mt-4 text-left">
             {Object.entries(section.details).map(([category, items]) => (
               <div key={category} className="mb-4">
                 <h4 className="text-sm font-semibold text-netflix-red mb-2">{category}</h4>

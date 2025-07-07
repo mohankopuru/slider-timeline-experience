@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { FileDown } from 'lucide-react';
 
 // Sample CV file - in a real application, this would be stored in the public folder
-const CV_FILE_PATH = '/john_developer_cv.pdf';
+const CV_FILE_PATH = 'https://drive.google.com/file/d/1yGngzuC_d2j3bl__K2ZpPOXJdKOm4Izg/view?usp=sharing';
 
 const AboutSection: React.FC = () => {
   const handleDownloadCV = () => {
@@ -23,9 +23,9 @@ const AboutSection: React.FC = () => {
     
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'john_developer_cv.pdf';
-    
+    link.href = CV_FILE_PATH;
+    link.download = 'Mohan_Kopuru_CV.pdf';
+    link.target = '_blank';
     // Append to the document, click it, and remove it
     document.body.appendChild(link);
     link.click();
@@ -47,7 +47,7 @@ const AboutSection: React.FC = () => {
             <div className="relative">
               <Avatar className="w-48 h-48 border-4 border-netflix-red shadow-lg">
                 <AvatarImage 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=400&h=400" 
+                  src="/hero.jpg" 
                   alt="Developer Profile" 
                 />
                 <AvatarFallback className="text-4xl bg-netflix-red text-white">JD</AvatarFallback>
@@ -79,7 +79,7 @@ const AboutSection: React.FC = () => {
                 </p>
                 
                 <p>
-                  I specialize in React, TypeScript, Python, C#, .NET, and Node.js, always focusing on performance, clean architecture, and user experience.
+                  I specialize in React, NextJs, TypeScript, Python, C#, .NET, and Node.js, always focusing on performance, clean architecture, and user experience.
                 </p>
                 
                 <p>
