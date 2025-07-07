@@ -120,7 +120,7 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
     {
       id: "interests",
       title: "Hobbies & Interests",
-      content: "I became interested in open-source development, contributing to various projects. I also enjoyed hiking, photography, and playing basketball to balance my technical pursuits."
+      content: "I became interested in open-source development, contributing to various projects. I also enjoyed hiking, photography, and playing volleyball to balance my technical pursuits."
     }
   ],
   "junior": [
@@ -147,7 +147,7 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
     {
       id: "interests",
       title: "Hobbies & Interests",
-      content: "I started attending tech conferences and networking events. Outside of work, I enjoyed cooking, traveling, and learning about UI/UX design principles."
+      content: "I started attending tech conferences and networking events. Outside of work, I enjoyed cooking, traveling, and learning about AI/ML Developments."
     }
   ],
   "engineer": [
@@ -175,7 +175,7 @@ export const PROFILE_CONTENT: Record<string, ProfileSection[]> = {
     {
       id: "interests",
       title: "Hobbies & Interests",
-      content: "I enjoy writing technical blog posts and speaking at conferences. I'm passionate about mentoring new developers and contributing to open-source projects. In my free time, I practice yoga, play piano, and explore new coffee shops."
+      content: "I enjoy writing technical blog posts on Medium. I'm passionate about mentoring new developers and contributing to open-source projects. In my free time, I practice martial arts, go on hikes, and explore new coffee shops."
     }
   ]
 };
